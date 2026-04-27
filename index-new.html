@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Sales Dashboard 2026</title>
+
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+h1 { margin-bottom: 6px; }
+
+#topbar { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
+#breadcrumb { font-size:13px; }
+#breadcrumb span { cursor:pointer; color:#0078d4; }
+#breadcrumb span:hover { text-decoration:underline; }
+#breadcrumb .sep { margin:0 6px; color:#777; }
+
+button { padding:4px 10px; }
+button:disabled { opacity:0.5; }
+
+table { border-collapse:collapse; width:100%; margin-top:10px; }
+th, td { border:1px solid #ccc; padding:6px; text-align:right; }
+th:first-child, td:first-child { text-align:left; }
+th { cursor:pointer; background:#f4f4f4; }
+tr.data-row:hover { background:#fafafa; cursor:pointer; }
+
+.total-row { background:#eee; font-weight:bold; }
+.negative { color:crimson; font-weight:bold; }
+.positive { color:darkgreen; font-weight:bold; }
+
+.sort { font-size:11px; margin-left:6px; color:#666; }
+</style>
+</head>
+
+<body>
+
+<h1>Sales Dashboard 2026</h1>
+
+<div id="topbar">
+  <button id="backBtn" onclick="goBack()" disabled>⬅ Indietro</button>
+
+  Periodo:
+  <select id="periodSelect"></select>
+
+  <div id="breadcrumb"></div>
+</div>
+
+<table id="table"></table>
+<div id="status"></div>
+
+<script>
+var DATA_PATH = "data/sales_q1_2026.json";
+var LEVELS = ["Sektor","Salesperson","Customer"];
+
+var rawData = [];
+var levelIndex = 0;
+var filters = {};
+var sortCol = "delta";
+var sortAsc = false;
+
+fetch(DATA_PATH)
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    rawData = data;
+    initPeriods();
+    render();
+    document.getElementById("status").innerText = "Righe caricate: " + rawData.length;
+  });
+
+function initPeriods(){
+  var s = document.getElementById("periodSelect");
+  s.innerHTML = "";
+
+  var opt = document.createElement("option");
+  opt.value = "ALL";
+  opt.textContent = "Tutte le periodi";
+  s.appendChild(opt);
+
+  var map = {};
+  for (var i=0;i<rawData.length;i++){
+    if (rawData[i].Period) map[rawData[i].Period] = true;
+  }
+
+  var months = {
+    "01":"Gennaio","02":"Febbraio","03":"Marzo","04":"Aprile",
+    "05":"Maggio","06":"Giugno","07":"Luglio","08":"Agosto",
+    "09":"Settembre","10":"Ottobre","11":"Novembre","12":"Dicembre"
+  };
+
+  var arr = Object.keys(map).sort();
+  for (var j=0;j<arr.length;j++){
+    var p = arr[j];
+    var parts = p.split("-");
+    var o = document.createElement("option");
+    o.value = p;
+    o.textContent = months[parts[1]] + " " + parts[0];
+    s.appendChild(o);
+  }
+  s.onchange = render;
+}
+
+function render(){
+  var level = LEVELS[levelIndex];
+  var period = document.getElementById("periodSelect").value;
+  var data = [];
+
+  for (var i=0;i<rawData.length;i++){
+    var r = rawData[i];
+    if (!(period==="ALL" || r.Period===period)) continue;
+
+    var ok=true;
+    for (var f in filters){
+      if (r[f]!==filters[f]){ ok=false; break; }
+    }
+    if (ok) data.push(r);
+  }
+
+  var agg = {};
+  for (var k=0;k<data.length;k++){
+    var row = data[k];
+    var key = row[level] || "(vuoto)";
+    if (!agg[key]) agg[key] = {u:0,b:0};
+    agg[key].u += Number(row.Umsatz)||0;
+    agg[key].b += Number(row.Budget)||0;
+  }
+
+  var rows=[];
+  for (var x in agg){
+    rows.push({
+      key:x,
+      umsatz:agg[x].u,
+      budget:agg[x].b,
+      delta:agg[x].u-agg[x].b
+    });
+  }
+
+  rows.sort(function(a,b){
+    if (sortCol==="key"){
+      return sortAsc ? a.key.localeCompare(b.key) : b.key.localeCompare(a.key);
+    }
+    return sortAsc ? a[sortCol]-b[sortCol] : b[sortCol]-a[sortCol];
+  });
+
+  drawBreadcrumb();
+  drawTable(rows, level);
+}
+
+function drawBreadcrumb(){
+  var bc=document.getElementById("breadcrumb");
+  bc.innerHTML="";
+  for (var i=0;i<=levelIndex;i++){
+    (function(idx){
+      var s=document.createElement("span");
+      s.textContent = idx===0 ? "Sektor" : filters[LEVELS[idx]];
+      s.onclick=function(){
+        levelIndex=idx;
+        for (var j=idx+1;j<LEVELS.length;j++) delete filters[LEVELS[j]];
+        render();
+      };
+      bc.appendChild(s);
+      if (idx<levelIndex){
+        var sp=document.createElement("span");
+        sp.className="sep";
+        sp.textContent="›";
+        bc.appendChild(sp);
+      }
+    })(i);
+  }
+  document.getElementById("backBtn").disabled = levelIndex===0;
+}
+
+function drawTable(rows, level){
+  var t=document.getElementById("table");
+  t.innerHTML="";
+
+  function ind(c){ return sortCol===c ? (sortAsc?"▲":"▼") : ""; }
+
+  var h=document.createElement("tr");
+  h.innerHTML =
+    "<th onclick=\"setSort('key')\">"+level+" <span class='sort'>"+ind("key")+"</span></th>"+
+    "<th onclick=\"setSort('umsatz')\">Umsatz <span class='sort'>"+ind("umsatz")+"</span></th>"+
+    "<th onclick=\"setSort('budget')\">Budget <span class='sort'>"+ind("budget")+"</span></th>"+
+    "<th onclick=\"setSort('delta')\">Delta <span class='sort'>"+ind("delta")+"</span></th>";
+  t.appendChild(h);
+
+  var totU=0, totB=0, totD=0;
+
+  for (var i=0;i<rows.length;i++){
+    var r=rows[i];
+    totU+=r.umsatz; totB+=r.budget; totD+=r.delta;
+
+    var tr=document.createElement("tr");
+    tr.className="data-row";
+    tr.innerHTML=
+      "<td>"+r.key+"</td>"+
+      "<td>"+r.umsatz.toLocaleString()+"</td>"+
+      "<td>"+r.budget.toLocaleString()+"</td>"+
+      "<td class='"+(r.delta<0?"negative":"positive")+"'>"+r.delta.toLocaleString()+"</td>";
+    tr.onclick=function(k){ return function(){ drillDown(k); }; }(r.key);
+    t.appendChild(tr);
+  }
+
+  var sum=document.createElement("tr");
+  sum.className="total-row";
+  sum.innerHTML=
+    "<td>TOTALE</td>"+
+    "<td>"+totU.toLocaleString()+"</td>"+
+    "<td>"+totB.toLocaleString()+"</td>"+
+    "<td class='"+(totD<0?"negative":"positive")+"'>"+totD.toLocaleString()+"</td>";
+  t.appendChild(sum);
+}
+
+function drillDown(v){
+  if (levelIndex>=LEVELS.length-1) return;
+  filters[LEVELS[levelIndex]]=v;
+  levelIndex++;
+  render();
+}
+
+function goBack(){
+  if (levelIndex===0) return;
+  levelIndex--;
+  delete filters[LEVELS[levelIndex]];
+  render();
+}
+
+function setSort(c){
+  if (sortCol===c) sortAsc=!sortAsc;
+  else { sortCol=c; sortAsc=(c==="key"); }
+  render();
+}
+</script>
+
+</body>
+</html>
+``
