@@ -1,4 +1,4 @@
-﻿[
+[
     {
         "Period":  "2026-04",
         "Sektor":  "unknown",
@@ -50371,5 +50371,311 @@
         "Umsatz":  0,
         "PrevUmsatz":  0,
         "Budget":  32
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "industry",
+        "Salesperson":  "017-Casadei Simone",
+        "Customer":  "CLI22452-S.I.T.A. SRL",
+        "Umsatz":  616,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "car",
+        "Salesperson":  "021-Cantore Antonio",
+        "Customer":  "CLI000603-AUTOCARROZZERIA MARANGELLA E CICALA SNC",
+        "Umsatz":  180,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "industry",
+        "Salesperson":  "035-Gambacorta Pietro",
+        "Customer":  "CLI17553-STELLANTIS EUROPE SPA - 145 - STABILIMENTO CASSINO CARROZZERIA",
+        "Umsatz":  1287,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "wood",
+        "Salesperson":  "054-Lenoci Marco",
+        "Customer":  "CLI29137-RICCIARDI GIUSEPPE",
+        "Umsatz":  350,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "wood",
+        "Salesperson":  "069-Nordwal Colour LECCE",
+        "Customer":  "CLI000777-VENTURIST S.R.L.",
+        "Umsatz":  57,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "rest",
+        "Salesperson":  "999-Online",
+        "Customer":  "CLI000755-Ruf Alfred",
+        "Umsatz":  50,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "rest",
+        "Salesperson":  "999-Online",
+        "Customer":  "CLI000772-Varcasia Giuseppe",
+        "Umsatz":  59,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "rest",
+        "Salesperson":  "999-Online",
+        "Customer":  "CLI30059-Christanell Monia",
+        "Umsatz":  46,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "wood",
+        "Salesperson":  "I009-Egon De Nadai",
+        "Customer":  "CLI301-FALEGNAMERIA FRANCESCHETTI SRL",
+        "Umsatz":  0,
+        "PrevUmsatz":  0,
+        "Budget":  92
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "wood",
+        "Salesperson":  "I038-Magagnin Roberto",
+        "Customer":  "CLI2326-RAGNOLINI DAMIANO",
+        "Umsatz":  52,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "wall",
+        "Salesperson":  "I055-Colautti Antonella",
+        "Customer":  "CLI12948-TESOLIN SPA",
+        "Umsatz":  26,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I062-Nordwal colour BOZEN",
+        "Customer":  "CLI000784-DEMETZ GUIDO REINHOLD",
+        "Umsatz":  47,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I062-Nordwal colour BOZEN",
+        "Customer":  "CLI23714-HANLUG GMBH",
+        "Umsatz":  98,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I063-Nordwal colour MERAN",
+        "Customer":  "CLI000377-DAKUBAU DI KOCI DEFRIM \u0026 CO. SAS",
+        "Umsatz":  196,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I063-Nordwal colour MERAN",
+        "Customer":  "CLI000773-GHAFOUR ABDUL",
+        "Umsatz":  59,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I063-Nordwal colour MERAN",
+        "Customer":  "CLI000776-PFÖSTL HERTITAGE GROUP GMBH",
+        "Umsatz":  15,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I063-Nordwal colour MERAN",
+        "Customer":  "CLI11890-STECK JOHANN KG",
+        "Umsatz":  99,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I063-Nordwal colour MERAN",
+        "Customer":  "CLI17776-COLOR PROGRESS",
+        "Umsatz":  143,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I063-Nordwal colour MERAN",
+        "Customer":  "CLI8387-INNERHOFER HOLZBAU GMBH",
+        "Umsatz":  31,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I064-Nordwal colour VERONA",
+        "Customer":  "CLI000782-FULL SOUND SERVICE",
+        "Umsatz":  400,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I065-Nordwal colour EPPAN",
+        "Customer":  "CLI000779-KOFLER ALEXANDER",
+        "Umsatz":  55,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I065-Nordwal colour EPPAN",
+        "Customer":  "CLI14449-ARGEBAU GMBH",
+        "Umsatz":  19,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I065-Nordwal colour EPPAN",
+        "Customer":  "CLI19030-EINSTEIN CONSULTING GMBH",
+        "Umsatz":  62,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I065-Nordwal colour EPPAN",
+        "Customer":  "CLI24125-HOTEL PFÖSL KG",
+        "Umsatz":  242,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I065-Nordwal colour EPPAN",
+        "Customer":  "CLI26174-STAMPFER ANDREAS",
+        "Umsatz":  85,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I067-Nordwal colour TRIENT",
+        "Customer":  "CLI000768-TECHNIC TEAM DI MIGLIOZZI INGMAR",
+        "Umsatz":  29,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I067-Nordwal colour TRIENT",
+        "Customer":  "CLI000778-DEFJO SRL",
+        "Umsatz":  97,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I068-Nordwal colour BRUNECK",
+        "Customer":  "CLI000769-HOTEL SCHERER KG",
+        "Umsatz":  136,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I068-Nordwal colour BRUNECK",
+        "Customer":  "CLI000783-REDO\u0026CLEAN",
+        "Umsatz":  250,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I068-Nordwal colour BRUNECK",
+        "Customer":  "CLI22616-DAN KÜCHEN VEREINFACHTE GMBH",
+        "Umsatz":  29,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "wall",
+        "Salesperson":  "I080-Speri Stefano",
+        "Customer":  "CLI000380-EDIL BUCOVINA SRL",
+        "Umsatz":  219,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "nwc",
+        "Salesperson":  "I090-Nordwal colour RIVA DEL GARDA",
+        "Customer":  "CLI25238-BUFFALO GRILL DI MASSIMO ELMO",
+        "Umsatz":  52,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "rest",
+        "Salesperson":  "I094-Huber Harald",
+        "Customer":  "CLI15-GASSER LOGISTIC GMBH",
+        "Umsatz":  285,
+        "PrevUmsatz":  0,
+        "Budget":  0
+    },
+    {
+        "Period":  "2026-04",
+        "Sektor":  "rest",
+        "Salesperson":  "I099-clienti direzionali",
+        "Customer":  "CLI10861-SPRITZBETON GRANIG",
+        "Umsatz":  34,
+        "PrevUmsatz":  0,
+        "Budget":  0
     }
 ]
